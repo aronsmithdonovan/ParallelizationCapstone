@@ -2,7 +2,6 @@
 # created by Aron Smith-Donovan
 
 # compilers + flags
-CC=gcc
 CXX=g++
 OMP=-fopenmp
 DEBUG=-DDEBUG  # show numerical DEBUG prints
@@ -13,12 +12,9 @@ INCLUDE=/usr/local/include/trng
 LIB=trng4
 
 # executables
-EXECUTABLES={fungi,seq.fungi,random}
+EXECUTABLES={omp.fungi,seq.fungi}
 
 # make rules
-fungi: fungi.cpp
-	$(CXX) $(DEBUG) -o fungi fungi.cpp -I$(INCLUDE) -l$(LIB)
-
 seq.fungi: fungi-seq.cpp
 	$(CXX) $(DEBUG) $(COLOR) -o seq.fungi fungi-seq.cpp -I$(INCLUDE) -l$(LIB)
 
